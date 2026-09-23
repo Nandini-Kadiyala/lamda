@@ -1,0 +1,83 @@
+Custom policy:
+
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "EC2ReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeSnapshots",
+                "ec2:DescribeAddresses",
+                "ec2:DescribeRegions",
+                "ec2:DescribeTags"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3ReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:GetBucketLocation",
+                "s3:GetBucketTagging",
+                "s3:GetBucketVersioning",
+                "s3:GetLifecycleConfiguration"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CostExplorerReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "ce:GetCostAndUsage",
+                "ce:GetDimensionValues",
+                "ce:GetCostForecast"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "SendCostAuditEmail",
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendRawEmail"
+            ],
+            "Resource": "arn:aws:ses:us-east-1:190535468276:identity/kadiyalanandini666@gmail.com"
+        },
+        {
+            "Sid": "PublishCostAuditNotification",
+            "Effect": "Allow",
+            "Action": [
+                "sns:Publish"
+            ],
+            "Resource": "arn:aws:sns:us-east-1:190535468276:aws-cost-audit-notification"
+        },
+        {
+            "Sid": "IAMReadOnly",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUsers",
+                "iam:ListRoles",
+                "iam:ListGroups",
+                "iam:ListPolicies",
+                "iam:GetUser",
+                "iam:GetRole",
+                "iam:GetPolicy",
+                "iam:GetPolicyVersion",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListAttachedRolePolicies",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListUserPolicies",
+                "iam:ListRolePolicies",
+                "iam:ListGroupPolicies"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+
+
+4. deploed the lamda code and tested.
