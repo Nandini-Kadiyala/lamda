@@ -1,0 +1,6 @@
+Steps:
+
+1. created role and attached the least privilege permissions for the ec2, s3, iam and cost explorer
+2. created sns and allowed that arn in policy
+3. created sms and allowed that arn in policy
+4. lamda code deployed and tested 
